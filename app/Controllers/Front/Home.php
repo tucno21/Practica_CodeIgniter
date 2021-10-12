@@ -9,9 +9,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        $instanciar = new Codigo();
+        // $instanciar = new Codigo();
 
-        echo $instanciar->hola();
+        // echo $instanciar->hola();
 
         return view('front/home');
     }
