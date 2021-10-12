@@ -1,3 +1,11 @@
+<?= $this->extend('front/layout/main') ?>
+<?= $this->section('content') ?>
+<!-- Jumbotron -->
+<div id="intro" class="p-5 text-center bg-light">
+    <h1 class="mb-3 h2">BLOG DE PRUEBA</h1>
+    <p class="mb-3">aprendiendo codeigniter4.1.4</p>
+</div>
+<!-- Jumbotron -->
 <!--Main layout-->
 <main class="my-5">
     <div class="container">
@@ -144,3 +152,4 @@
     </div>
 </main>
 <!--Main layout-->
+<?= $this->endSection() ?>
