@@ -21,7 +21,8 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+//con esto ya no se cambia la ruta o busque el controlador
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
