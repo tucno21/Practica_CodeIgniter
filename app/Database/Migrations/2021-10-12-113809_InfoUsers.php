@@ -8,8 +8,9 @@ class InfoUsers extends Migration
 {
     public function up()
     {
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
-            'id'          => [ //nombre de la columna
+            'id_user'          => [ //nombre de la columna
                 'type'           => 'INT', //tipo de columna
                 'constraint'     => 11, // tamaño de la columna
                 'unsigned'       => true,
@@ -41,8 +42,15 @@ class InfoUsers extends Migration
                 'null' => true,
             ],
         ]);
-        $this->forge->addKey('id', true); //asigna id primario
+        $this->forge->addKey('id_user', true); //asigna id primario
+        //columna de esta tabla - nobre de la otra tabla  - y su id //
+        //CASCADE - ACTUALIZA O ELIMINA AMBAS TABLAS //'SET NULL' si una fila se elimina la otra no es afectado
+        // $this->forge->addForeignKey('id_county', 'countries', 'id', 'CASCADE', 'SET NULL');
+        // $this->forge->addForeignKey('id_user', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_county', 'countries', 'id');
+        $this->forge->addForeignKey('id_user', 'users', 'id');
         $this->forge->createTable('info_users'); //nombre de la tabla a crear
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

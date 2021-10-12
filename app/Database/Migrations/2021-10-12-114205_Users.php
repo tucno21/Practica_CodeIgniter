@@ -8,6 +8,7 @@ class Users extends Migration
 {
     public function up()
     {
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'id'          => [ //nombre de la columna
                 'type'           => 'INT', //tipo de columna
@@ -46,7 +47,9 @@ class Users extends Migration
             ],
         ]);
         $this->forge->addKey('id', true); //asigna id primario
+        $this->forge->addForeignKey('id_group', 'groups', 'id');
         $this->forge->createTable('users'); //nombre de la tabla a crear
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()
