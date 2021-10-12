@@ -14,4 +14,9 @@ class Home extends BaseController
 
         return view('welcome_message');
     }
+
+    public function libreria()
+    {
+        echo 'desde otro controlador y rura';
+    }
 }
