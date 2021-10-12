@@ -1,4 +1,9 @@
 <?= $this->extend('front/layout/main') ?>
+
+<?= $this->section('title') ?>
+Home
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 <!-- Jumbotron -->
 <div id="intro" class="p-5 text-center bg-light">
