@@ -34,8 +34,8 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 
 //nuevo grupo como base despues de la URL /base
-$routes->group('/base', function ($routes) {
-    $routes->get('/', 'Home::index');
+$routes->group('/', ['namespace' => 'App\Controllers\Front'], function ($routes) {
+    $routes->get('', 'Home::index');
     $routes->get('/librerias', 'Home::libreria');
 });
 
