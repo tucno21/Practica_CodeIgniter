@@ -17,3 +17,17 @@ Ejecutar las migraciones
 ```
 php spark migrate
 ```
+
+rollback (por cada php spark migrate -- realizado)
+Revierte todas las migraciones, llevando el grupo de bases de datos a una pizarra en blanco, migración efectiva 0
+
+```
+php spark migrate:rollback
+```
+
+refresh
+Actualiza el estado de la base de datos al deshacer primero todas las migraciones y luego migrar todas:
+
+```
+php spark migrate:refresh
+```
