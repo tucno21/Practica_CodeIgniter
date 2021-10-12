@@ -13,7 +13,7 @@ class Home extends BaseController
 
         echo $instanciar->hola();
 
-        return view('welcome_message');
+        return view('front/home');
     }
 
     public function libreria()
