@@ -31,3 +31,21 @@ Actualiza el estado de la base de datos al deshacer primero todas las migracione
 ```
 php spark migrate:refresh
 ```
+
+Intalar faker a codeigniter
+
+```
+composer require --dev fakerphp/faker
+```
+
+Crear seeder
+
+```
+php spark make:seeder Inicio
+```
+
+Ejecutar seeder
+
+```
+php spark db:seed Inicio
+```
