@@ -50,3 +50,9 @@ Ejecutar seeder
 ```
 php spark db:seed Inicio
 ```
+
+Entidades / crear
+
+```
+php spark make:entity User
+```
