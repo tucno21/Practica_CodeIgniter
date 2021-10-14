@@ -7,6 +7,13 @@ use App\Entities\User;
 
 class Register extends BaseController
 {
+    public $configs;
+
+    public function __construct()
+    {
+        $this->configs =  config('Blog');
+    }
+
     public function index()
     {
         //instanciar el modelo
@@ -26,8 +33,8 @@ class Register extends BaseController
         //llamando a la funcion creada en la entidad para generar el username
         $user->generateUsername();
 
-        $modelUser->save($user);
-        // d($modelUser);
+        // $modelUser->save($user);
+        d($this->configs);
 
         return view('Auth/register');
     }
