@@ -42,6 +42,7 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
     //creando un alias 'as'
     $routes->get('register', 'Register::register', ['as' => 'register']);
     $routes->get('login', 'Register::login', ['as' => 'login']);
+    $routes->post('store', 'Register::store');
 });
 
 

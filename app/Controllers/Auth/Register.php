@@ -53,6 +53,10 @@ class Register extends BaseController
         ]);
     }
 
+    public function store()
+    {
+        $validator = service('validation');
+    }
 
     public function login()
     {

@@ -135,7 +135,7 @@ Login
     <?php $validation =  \Config\Services::validation(); ?>
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
-            <form method="POST" action="<?= base_url('user') ?>">
+            <form method="POST" action="<?= base_url('auth/store') ?>">
                 <?= csrf_field() ?>
 
                 <div class="card shadow">
