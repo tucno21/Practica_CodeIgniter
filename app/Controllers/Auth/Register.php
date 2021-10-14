@@ -44,7 +44,13 @@ class Register extends BaseController
         // $modelUser->save($user);
         // d($modelUser->withGroup($this->configs->defaultGroup));
 
-        return view('Auth/register');
+        $modelCountries = model('CountriesModel');
+        $paises = $modelCountries->findAll();
+        // d($paises);
+
+        return view('Auth/register', [
+            'paises' => $paises,
+        ]);
     }
 
 

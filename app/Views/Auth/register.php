@@ -182,7 +182,9 @@ Login
                             <select name="id_country" class="form-control <?php if ($validation->getError('id_country')) : ?>is-invalid<?php endif ?>">
 
                                 <option value="">selecciones Pais</option>
-                                <option value="2">hola2</option>
+                                <?php foreach ($paises as $pais) : ?>
+                                    <option value="<?php echo $pais->id; ?>"><?php echo $pais->name; ?></option>
+                                <?php endforeach; ?>
                             </select>
 
                             <?php if ($validation->getError('email')) : ?>
