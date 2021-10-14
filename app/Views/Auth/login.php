@@ -63,7 +63,7 @@ Login
                                     </div>
 
                                     <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta? <a href="register" style="color: #393f81;">Registrar aquí</a></p>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta? <a href="<?= base_url(route_to('register')) ?>" style="color: #393f81;">Registrar aquí</a></p>
                                     <!-- <a href="#!" class="small text-muted">Terms of use.</a>
                                     <a href="#!" class="small text-muted">Privacy policy</a> -->
                                 </form>

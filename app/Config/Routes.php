@@ -35,12 +35,13 @@ $routes->setAutoRoute(false);
 
 //nuevo grupo como base despues de la URL /base
 $routes->group('/', ['namespace' => 'App\Controllers\Front'], function ($routes) {
-    $routes->get('', 'Home::index');
+    $routes->get('', 'Home::index', ['as' => 'home']);
 });
 
 $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($routes) {
-    $routes->get('register', 'Register::register');
-    $routes->get('login', 'Register::login');
+    //creando un alias 'as'
+    $routes->get('register', 'Register::register', ['as' => 'register']);
+    $routes->get('login', 'Register::login', ['as' => 'login']);
 });
 
 
