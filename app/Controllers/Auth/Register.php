@@ -4,6 +4,7 @@ namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
 use App\Entities\User;
+use App\Entities\UserInfo;
 
 class Register extends BaseController
 {
@@ -20,12 +21,12 @@ class Register extends BaseController
         $modelUser = model('UsersModel');
 
         $data = [
-            'email' => 'admin2@admin.com',
+            'email' => 'admim8@admin.com',
             'password' => 'admin',
-            'name' => 'oscar',
+            'name' => 'juana',
             // 'id_group' => 1,
-            'surname' => 'peru',
-            'id_county' => 11,
+            'surname' => 'perez',
+            'id_county' => 10,
             // 'created_at' => date('Y-m-d H:i:s'),
         ];
 
@@ -35,6 +36,11 @@ class Register extends BaseController
         // $modelUser->withGroup($this->configs->defaultGroup);
         //paso directo del grupo
         $modelUser->withGroup('admin');
+
+        //====================================
+        $userInfo = new UserInfo($data);
+        $modelUser->addUserInfo($userInfo);
+
         $modelUser->save($user);
         // d($modelUser->withGroup($this->configs->defaultGroup));
 

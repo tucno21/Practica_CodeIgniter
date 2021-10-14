@@ -4,6 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Entities\User;
+use App\Entities\UserInfo;
 
 class UsersModel extends Model
 {
@@ -32,7 +33,19 @@ class UsersModel extends Model
     //https://codeigniter.com/user_guide/models/model.html
     //Specifying Callbacks To Run
     protected $beforeInsert = ['addGroup'];
+    protected $afterInsert = ['storeUserInfo'];
     protected $assignGroup;
+    protected $infoUser;
+
+    protected function storeUserInfo($data)
+    {
+        //llamar el id registrado
+        $this->infoUser->id_user = $data['id'];
+        //llamar al modelo
+        $model = model('UsersInfoModel');
+        //llamar a la entidad userInfo he inserta a su tabla
+        $model->insert($this->infoUser);
+    }
 
     protected function addGroup($data)
     {
@@ -49,5 +62,10 @@ class UsersModel extends Model
             // d($row->id);
             $this->assignGroup = $row->id;
         }
+    }
+
+    public function addUserInfo(UserInfo $ui)
+    {
+        $this->infoUser = $ui;
     }
 }
