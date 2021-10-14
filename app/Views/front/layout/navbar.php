@@ -26,14 +26,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="<?= base_url(route_to('home')) ?>">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link <?= service('request')->uri->getPath() == '/' ? 'active' : '' ?>" href="<?= base_url(route_to('home')) ?>">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard" rel="nofollow">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url(route_to('login')) ?>">Iniciar Session</a>
+                        <a class="nav-link <?= service('request')->uri->getPath() == 'auth/login' ? 'active' : '' ?>
+" href="<?= base_url(route_to('login')) ?>">Iniciar Session</a>
                     </li>
                 </ul>
 
