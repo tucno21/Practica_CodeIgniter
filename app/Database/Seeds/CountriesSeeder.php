@@ -27,6 +27,6 @@ class CountriesSeeder extends Seeder
 
         //https://codeigniter4.github.io/userguide/database/query_builder.html#inserting-data
         $builder = $db->table('countries');
-        $builder->insertBatch($counters);
+        $builder->insertBatch($countries);
     }
 }
