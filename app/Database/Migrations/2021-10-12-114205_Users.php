@@ -21,6 +21,13 @@ class Users extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '120',
                 'null' => false, //no nulo
+                'unique' => true, //que el email sea unico
+            ],
+            'email'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '120',
+                'null' => false, //no nulo
+                'unique' => true, //que el email sea unico
             ],
             'password'       => [
                 'type'       => 'VARCHAR',
