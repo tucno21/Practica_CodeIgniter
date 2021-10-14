@@ -10,22 +10,24 @@ class Register extends BaseController
     public function index()
     {
         //instanciar el modelo
-        $modelUser = model('UserModel');
+        $modelUser = model('UsersModel');
 
         $data = [
-            'email' => 'cc@example.com',
+            'email' => 'admin@admin.com',
             'password' => 'admin',
             'name' => 'carlos',
+            'id_group' => 1,
             'surname' => 'tucno',
             'id_county' => 11,
-            'created_at' => date('Y-m-d H:i:s'),
+            // 'created_at' => date('Y-m-d H:i:s'),
         ];
 
         $user = new User($data);
         //llamando a la funcion creada en la entidad para generar el username
         $user->generateUsername();
 
-        d($user->username);
+        $modelUser->save($user);
+        // d($modelUser);
 
         return view('Auth/register');
     }
