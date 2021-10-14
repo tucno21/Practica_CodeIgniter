@@ -36,7 +36,10 @@ $routes->setAutoRoute(false);
 //nuevo grupo como base despues de la URL /base
 $routes->group('/', ['namespace' => 'App\Controllers\Front'], function ($routes) {
     $routes->get('', 'Home::index');
-    $routes->get('/librerias', 'Home::libreria');
+});
+
+$routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($routes) {
+    $routes->get('login', 'Register::index');
 });
 
 
