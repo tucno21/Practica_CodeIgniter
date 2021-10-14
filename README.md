@@ -33,6 +33,7 @@ php spark migrate:refresh
 ```
 
 Intalar faker a codeigniter
+https://codeigniter4.github.io/userguide/dbmgmt/seeds.html?highlight=faker
 
 ```
 composer require --dev fakerphp/faker
