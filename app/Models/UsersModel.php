@@ -27,4 +27,13 @@ class UsersModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function withGroup(string $group)
+    {
+        //llamando otra tabla y debolviendo en objeto
+        //https://codeigniter.com/user_guide/database/results.html
+        $row = $this->db->table('groups')->where('name', $group)->get()->getFirstRow();
+        d($row);
+        return $row;
+    }
 }

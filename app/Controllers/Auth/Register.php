@@ -34,7 +34,7 @@ class Register extends BaseController
         $user->generateUsername();
 
         // $modelUser->save($user);
-        d($this->configs);
+        d($modelUser->withGroup($this->configs->defaultGroup));
 
         return view('Auth/register');
     }
