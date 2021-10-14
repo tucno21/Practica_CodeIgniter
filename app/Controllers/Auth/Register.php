@@ -32,7 +32,9 @@ class Register extends BaseController
         $user = new User($data);
         //llamando a la funcion creada en la entidad para generar el username
         $user->generateUsername();
-        $modelUser->withGroup($this->configs->defaultGroup);
+        // $modelUser->withGroup($this->configs->defaultGroup);
+        //paso directo del grupo
+        $modelUser->withGroup('admin');
         $modelUser->save($user);
         // d($modelUser->withGroup($this->configs->defaultGroup));
 
