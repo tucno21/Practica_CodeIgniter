@@ -9,6 +9,9 @@ class Register extends BaseController
 {
     public function index()
     {
+        //instanciar el modelo
+        $modelUser = model('UserModel');
+
         $data = [
             'email' => 'cc@example.com',
             'password' => 'admin',
