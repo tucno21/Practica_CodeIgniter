@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Entities\User;
 
 class UsersModel extends Model
 {
@@ -11,7 +12,7 @@ class UsersModel extends Model
 
     protected $useAutoIncrement = true;
 
-    protected $returnType     = 'array';
+    protected $returnType     = User::class;
     protected $useSoftDeletes = true;
 
     protected $allowedFields = ['username', 'email', 'password', 'id_group'];
