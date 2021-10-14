@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/dashboard" rel="nofollow">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cerrarsesion">Iniciar Session</a>
+                        <a class="nav-link" href="/auth/login">Iniciar Session</a>
                     </li>
                 </ul>
 

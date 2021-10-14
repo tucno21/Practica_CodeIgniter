@@ -15,7 +15,7 @@ class Register extends BaseController
         $this->configs =  config('Blog');
     }
 
-    public function index()
+    public function register()
     {
         //instanciar el modelo
         $modelUser = model('UsersModel');
@@ -41,9 +41,15 @@ class Register extends BaseController
         $userInfo = new UserInfo($data);
         $modelUser->addUserInfo($userInfo);
 
-        $modelUser->save($user);
+        // $modelUser->save($user);
         // d($modelUser->withGroup($this->configs->defaultGroup));
 
         return view('Auth/register');
+    }
+
+
+    public function login()
+    {
+        return view('Auth/login');
     }
 }
