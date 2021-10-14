@@ -28,12 +28,26 @@ class UsersModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
+
+    //https://codeigniter.com/user_guide/models/model.html
+    //Specifying Callbacks To Run
+    protected $beforeInsert = ['addGroup'];
+    protected $assignGroup;
+
+    protected function addGroup($data)
+    {
+        $data['data']['id_group'] = $this->assignGroup;
+        return $data;
+    }
+
     public function withGroup(string $group)
     {
         //llamando otra tabla y debolviendo en objeto
         //https://codeigniter.com/user_guide/database/results.html
         $row = $this->db->table('groups')->where('name', $group)->get()->getFirstRow();
-        d($row);
-        return $row;
+        if ($row != null) {
+            // d($row->id);
+            $this->assignGroup = $row->id;
+        }
     }
 }

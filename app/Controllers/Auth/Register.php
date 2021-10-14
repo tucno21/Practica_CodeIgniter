@@ -20,11 +20,11 @@ class Register extends BaseController
         $modelUser = model('UsersModel');
 
         $data = [
-            'email' => 'admin@admin.com',
+            'email' => 'admin2@admin.com',
             'password' => 'admin',
-            'name' => 'carlos',
-            'id_group' => 1,
-            'surname' => 'tucno',
+            'name' => 'oscar',
+            // 'id_group' => 1,
+            'surname' => 'peru',
             'id_county' => 11,
             // 'created_at' => date('Y-m-d H:i:s'),
         ];
@@ -32,9 +32,9 @@ class Register extends BaseController
         $user = new User($data);
         //llamando a la funcion creada en la entidad para generar el username
         $user->generateUsername();
-
-        // $modelUser->save($user);
-        d($modelUser->withGroup($this->configs->defaultGroup));
+        $modelUser->withGroup($this->configs->defaultGroup);
+        $modelUser->save($user);
+        // d($modelUser->withGroup($this->configs->defaultGroup));
 
         return view('Auth/register');
     }
