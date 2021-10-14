@@ -13,11 +13,13 @@ class UsersModel extends Model
     protected $useAutoIncrement = true;
 
     protected $returnType     = User::class;
+    //eliminar el campo pero solo por fecha, se debe tener deleted_at
     protected $useSoftDeletes = true;
 
     protected $allowedFields = ['username', 'email', 'password', 'id_group'];
 
-    protected $useTimestamps = false;
+    //codeigniter se encarga de la fechas
+    protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
