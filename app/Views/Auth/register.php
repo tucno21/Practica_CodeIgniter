@@ -6,7 +6,7 @@ Login
 
 <?= $this->section('content') ?>
 
-<section class="h-100 bg-dark">
+<!-- <section class="h-100 bg-dark">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
@@ -130,6 +130,97 @@ Login
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<div class="container py-4">
+    <?php $validation =  \Config\Services::validation(); ?>
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
+            <form method="POST" action="<?= base_url('user') ?>">
+                <?= csrf_field() ?>
+
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h5 class="card-title">Register User</h5>
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <div class="form-group mb-3 has-validation">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control <?php if ($validation->getError('name')) : ?>is-invalid<?php endif ?>" name="name" placeholder="Nombres" value="" />
+                            <?php if ($validation->getError('name')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('name') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+
+                        <div class="form-group mb-3 has-validation">
+                            <label class="form-label">Apellidos</label>
+                            <input type="text" class="form-control <?php if ($validation->getError('surname')) : ?>is-invalid<?php endif ?>" name="surname" placeholder="Apellidos" value="" />
+                            <?php if ($validation->getError('surname')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('surname') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Email" value="" />
+                            <?php if ($validation->getError('email')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('email') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Pais</label>
+
+                            <select name="id_country" class="form-control <?php if ($validation->getError('id_country')) : ?>is-invalid<?php endif ?>">
+
+                                <option value="">selecciones Pais</option>
+                                <option value="2">hola2</option>
+                            </select>
+
+                            <?php if ($validation->getError('email')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('email') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control <?php if ($validation->getError('password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="contraseña" value="" />
+                            <?php if ($validation->getError('password')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('password') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control <?php if ($validation->getError('confirm_password')) : ?>is-invalid<?php endif ?>" name="confirm_password" placeholder="repita la contraseña" value="" />
+                            <?php if ($validation->getError('confirm_password')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('confirm_password') ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?= $this->endSection() ?>
