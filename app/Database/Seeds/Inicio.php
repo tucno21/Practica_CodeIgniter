@@ -10,6 +10,7 @@ class Inicio extends Seeder
     public function run()
     {
         $faker = Factory::create();
+        $db      = \Config\Database::connect();
 
         $counters = [];
 
@@ -23,6 +24,10 @@ class Inicio extends Seeder
                 'updated_at' => $updated_at->format('Y-m-d H:i:s'),
             ];
         }
+
+        //https://codeigniter4.github.io/userguide/database/query_builder.html#inserting-data
+        $builder = $db->table('countries');
+        $builder->insertBatch($counters);
 
 
         $fecha = $faker->dateTime();
@@ -39,6 +44,7 @@ class Inicio extends Seeder
             ],
         ];
 
-        d($group);
+        $builder = $db->table('groups');
+        $builder->insertBatch($group);
     }
 }
