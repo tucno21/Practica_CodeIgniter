@@ -29,13 +29,21 @@
                     <li class="nav-item">
                         <a class="nav-link <?= service('request')->uri->getPath() == '/' ? 'active' : '' ?>" href="<?= base_url(route_to('home')) ?>">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard" rel="nofollow">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= service('request')->uri->getPath() == 'auth/login' ? 'active' : '' ?>
+
+                    <?php if (session()->is_logged) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url(route_to('dashboard')) ?>" rel="nofollow">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url(route_to('logout')) ?>" rel="nofollow">cerrar sesion</a>
+                        </li>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a class="nav-link <?= service('request')->uri->getPath() == 'auth/login' ? 'active' : '' ?>
 " href="<?= base_url(route_to('login')) ?>">Iniciar Session</a>
-                    </li>
+                        </li>
+                    <?php endif; ?>
+
                 </ul>
 
             </div>

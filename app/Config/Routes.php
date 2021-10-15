@@ -44,6 +44,7 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
     $routes->get('login', 'Register::login', ['as' => 'login']);
     $routes->post('store', 'Register::store');
     $routes->post('loginstore', 'Register::loginstore');
+    $routes->get('logout', 'Register::logout', ['as' => 'logout']);
 });
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {

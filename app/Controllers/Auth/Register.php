@@ -98,7 +98,8 @@ class Register extends BaseController
             } else {
                 if (password_verify($password, $user->password)) {
 
-                    session()->set([
+                    $session = \Config\Services::session();
+                    $session->set([
                         'user_id' => $user->id,
                         'username' => $user->username,
                         'is_logged' => true,
@@ -115,5 +116,14 @@ class Register extends BaseController
 
             // dd($user);
         }
+    }
+
+
+    public function logout()
+    {
+        $session = \Config\Services::session();
+        $session->destroy();
+        // session_destroy();
+        return redirect()->route('home');
     }
 }

@@ -223,7 +223,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Cerrar</a></li>
+                    <li><a class="logout" href="<?= base_url(route_to('logout')) ?>">Cerrar</a></li>
                 </ul>
             </div>
         </header>
