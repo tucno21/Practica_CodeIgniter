@@ -28,6 +28,7 @@ Login
 </div> -->
 
 <section class="vh-100 mt-4 mb-4" style="background-color: #9A616D;">
+    <?php $validation =  \Config\Services::validation(); ?>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
@@ -39,7 +40,8 @@ Login
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
 
-                                <form>
+                                <form method="POST" action="<?= base_url('auth/loginstore') ?>">
+                                    <?= csrf_field() ?>
 
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -49,17 +51,28 @@ Login
                                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar sessión</h5>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form2Example17">Email</label>
+                                        <input type="email" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Correo electronico" value="<?= old('email') ?>" />
+                                        <label class="form-label">Nombre</label>
+                                        <?php if ($validation->getError('email')) : ?>
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('email') ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
 
+
                                     <div class="form-outline mb-4">
-                                        <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form2Example27">Contraseña</label>
+                                        <input type="password" class="form-control <?php if ($validation->getError('password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="Contraseña" value="<?= old('password') ?>" />
+                                        <label class="form-label">Nombre</label>
+                                        <?php if ($validation->getError('password')) : ?>
+                                            <div class="invalid-feedback">
+                                                <?= $validation->getError('password') ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
 
                                     <div class="pt-1 mb-4">
-                                        <button class="btn btn-dark btn-lg btn-block" type="button">Iniciar</button>
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Iniciar</button>
                                     </div>
 
                                     <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
