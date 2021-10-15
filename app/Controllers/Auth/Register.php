@@ -55,7 +55,22 @@ class Register extends BaseController
 
     public function store()
     {
-        $validator = service('validation');
+        $modelCountries = model('CountriesModel');
+        $validation = service('validation');
+
+        $validation->setRules([
+            'name' => 'required|alpha_space',
+            'surname' => 'required|alpha_space',
+            'email' => 'required|valid_email|is_unique[users.email]',
+            'id_country' => 'required|is_not_unique[countries.id]',
+            'password' => 'required|matches[confirm_password]',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            $validation->getErrors();
+
+            return redirect()->back()->withInput()->with('validation',  $validation);
+        }
     }
 
     public function login()

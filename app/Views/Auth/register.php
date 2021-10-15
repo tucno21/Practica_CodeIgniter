@@ -133,6 +133,7 @@ Login
 </section> -->
 <div class="container py-4">
     <?php $validation =  \Config\Services::validation(); ?>
+    <?php session(); ?>
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
             <form method="POST" action="<?= base_url('auth/store') ?>">
@@ -147,7 +148,7 @@ Login
 
                         <div class="form-group mb-3 has-validation">
                             <label class="form-label">Nombre</label>
-                            <input type="text" class="form-control <?php if ($validation->getError('name')) : ?>is-invalid<?php endif ?>" name="name" placeholder="Nombres" value="" />
+                            <input type="text" class="form-control <?php if ($validation->getError('name')) : ?>is-invalid<?php endif ?>" name="name" placeholder="Nombres" value="<?= old('name') ?>" />
                             <?php if ($validation->getError('name')) : ?>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('name') ?>
@@ -158,7 +159,7 @@ Login
 
                         <div class="form-group mb-3 has-validation">
                             <label class="form-label">Apellidos</label>
-                            <input type="text" class="form-control <?php if ($validation->getError('surname')) : ?>is-invalid<?php endif ?>" name="surname" placeholder="Apellidos" value="" />
+                            <input type="text" class="form-control <?php if ($validation->getError('surname')) : ?>is-invalid<?php endif ?>" name="surname" placeholder="Apellidos" value="<?= old('surname') ?>" />
                             <?php if ($validation->getError('surname')) : ?>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('surname') ?>
@@ -168,7 +169,7 @@ Login
 
                         <div class="form-group mb-3">
                             <label class="form-label">Email</label>
-                            <input type="text" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Email" value="" />
+                            <input type="text" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Email" value="<?= old('email') ?>" />
                             <?php if ($validation->getError('email')) : ?>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('email') ?>
@@ -183,13 +184,13 @@ Login
 
                                 <option value="">selecciones Pais</option>
                                 <?php foreach ($paises as $pais) : ?>
-                                    <option value="<?php echo $pais->id; ?>"><?php echo $pais->name; ?></option>
+                                    <option value="<?php echo $pais->id; ?>" <?php echo $pais->id == old('id_country') ? ' selected' : ''; ?>><?php echo $pais->name; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <?php if ($validation->getError('email')) : ?>
+                            <?php if ($validation->getError('id_country')) : ?>
                                 <div class="invalid-feedback">
-                                    <?= $validation->getError('email') ?>
+                                    <?= $validation->getError('id_country') ?>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -217,7 +218,7 @@ Login
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-success">Registrame</button>
                     </div>
                 </div>
             </form>
