@@ -11,7 +11,7 @@ class Auth implements FilterInterface
 
     public function before(RequestInterface $request, $arguments = null)
     {
-        dd($arguments);
+        // dd($arguments); //es un array
         if (!session()->is_logged) {
             return redirect()->route('login');
         }
@@ -24,7 +24,14 @@ class Auth implements FilterInterface
             return redirect()->route('login');
         }
 
-        // dd($user);
+        $modelGroups = model('GroupsModel');
+        $group = $modelGroups->where('id', $user->id_group)->first();
+
+        //buscar dentro del array coincidencias
+        if (!in_array($group->name, $arguments)) {
+            return redirect()->route('login');
+        }
+        // dd($group->name);
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
