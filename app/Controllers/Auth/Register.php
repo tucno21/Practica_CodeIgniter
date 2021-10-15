@@ -98,6 +98,12 @@ class Register extends BaseController
             } else {
                 if (password_verify($password, $user->password)) {
 
+                    session()->set([
+                        'user_id' => $user->id,
+                        'username' => $user->username,
+                        'is_logged' => true,
+                    ]);
+
                     return redirect()->route('home');
                 } else {
                     return redirect()->back()->with('msg',  [
