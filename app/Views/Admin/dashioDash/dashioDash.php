@@ -12,7 +12,7 @@ $navMessages = false;
 $navSettings = false;
 
 //DATOS DEL USUARIO ADMIN
-$userName = 'Carlos Tucno Vasquez';
+$userName = session('username');
 $profile = 'Administrador';
 $photoUser = '/dashioDash/img/ui-sam.jpg';
 $emailUser = 'cc@bb.com';
