@@ -18,6 +18,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>categorias</th>
+                                <th>Fecha de creación</th>
+                                <th>Fecha de actualización</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -26,6 +28,8 @@
                                 <tr>
                                     <td><?= $category->id ?></td>
                                     <td><?= $category->name ?></td>
+                                    <td><?= $category->created_at ?></td>
+                                    <td><?= $category->updated_at ?></td>
                                     <td>
                                         <a class="btn btn-default" href=""><i class="fa fa-edit"></i></a>
                                         <a class="btn btn-default" href=""><i class="fa fa-trash"></i></a>
