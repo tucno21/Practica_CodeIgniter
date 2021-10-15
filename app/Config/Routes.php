@@ -49,6 +49,10 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth:admin'], function ($routes) {
     $routes->get('dashboard', 'dashboard::index', ['as' => 'dashboard']);
+
+    $routes->get('categorias', 'Category::index', ['as' => 'categorias']);
+    $routes->get('categorias/crear', 'Category::create', ['as' => 'categoria_crear']);
+    $routes->post('categorias/store', 'Category::store', ['as' => 'categoria_store']);
 });
 
 
