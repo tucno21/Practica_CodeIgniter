@@ -52,9 +52,9 @@ $linksSidebar = [
     ],
     [
         'mode' => 'menu',
-        'text' => 'Usuarios',
-        'url'  => '/users',
-        'icon' => 'fa fa-desktop',
+        'text' => 'Categorias',
+        'url'  => base_url(route_to('categorias')),
+        'icon' => 'fa fa-cubes',
     ],
     [
         'mode' => 'menu',

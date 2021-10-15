@@ -8,6 +8,15 @@ class Category extends BaseController
 {
     public function index()
     {
-        echo 'hola';
+        return view('Admin/categorias/index');
+    }
+
+    public function create()
+    {
+        return view('Admin/categorias/create');
+    }
+
+    public function store()
+    {
     }
 }
