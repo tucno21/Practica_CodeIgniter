@@ -11,6 +11,7 @@ class Auth implements FilterInterface
 
     public function before(RequestInterface $request, $arguments = null)
     {
+        dd($arguments);
         if (!session()->is_logged) {
             return redirect()->route('login');
         }
@@ -22,6 +23,8 @@ class Auth implements FilterInterface
             session()->destroy();
             return redirect()->route('login');
         }
+
+        // dd($user);
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
