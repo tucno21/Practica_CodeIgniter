@@ -83,4 +83,11 @@ class Category extends BaseController
             return redirect()->route('categorias');
         }
     }
+
+    public function delete(string $id)
+    {
+        $modelcategories = model('CategoriesModel');
+        $modelcategories->delete($id);
+        return redirect()->route('categorias');
+    }
 }
