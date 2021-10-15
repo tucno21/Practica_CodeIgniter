@@ -180,17 +180,17 @@ Login
                         <div class="form-group mb-3">
                             <label class="form-label">Pais</label>
 
-                            <select name="id_country" class="form-control <?php if ($validation->getError('id_country')) : ?>is-invalid<?php endif ?>">
+                            <select name="id_county" class="form-control <?php if ($validation->getError('id_county')) : ?>is-invalid<?php endif ?>">
 
                                 <option value="">selecciones Pais</option>
                                 <?php foreach ($paises as $pais) : ?>
-                                    <option value="<?php echo $pais->id; ?>" <?php echo $pais->id == old('id_country') ? ' selected' : ''; ?>><?php echo $pais->name; ?></option>
+                                    <option value="<?php echo $pais->id; ?>" <?php echo $pais->id == old('id_county') ? ' selected' : ''; ?>><?php echo $pais->name; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <?php if ($validation->getError('id_country')) : ?>
+                            <?php if ($validation->getError('id_county')) : ?>
                                 <div class="invalid-feedback">
-                                    <?= $validation->getError('id_country') ?>
+                                    <?= $validation->getError('id_county') ?>
                                 </div>
                             <?php endif; ?>
                         </div>

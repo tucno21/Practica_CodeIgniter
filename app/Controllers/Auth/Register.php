@@ -17,33 +17,6 @@ class Register extends BaseController
 
     public function register()
     {
-        //instanciar el modelo
-        $modelUser = model('UsersModel');
-
-        $data = [
-            'email' => 'admim8@admin.com',
-            'password' => 'admin',
-            'name' => 'juana',
-            // 'id_group' => 1,
-            'surname' => 'perez',
-            'id_county' => 10,
-            // 'created_at' => date('Y-m-d H:i:s'),
-        ];
-
-        $user = new User($data);
-        //llamando a la funcion creada en la entidad para generar el username
-        $user->generateUsername();
-        // $modelUser->withGroup($this->configs->defaultGroup);
-        //paso directo del grupo
-        $modelUser->withGroup('admin');
-
-        //====================================
-        $userInfo = new UserInfo($data);
-        $modelUser->addUserInfo($userInfo);
-
-        // $modelUser->save($user);
-        // d($modelUser->withGroup($this->configs->defaultGroup));
-
         $modelCountries = model('CountriesModel');
         $paises = $modelCountries->findAll();
         // d($paises);
@@ -62,7 +35,7 @@ class Register extends BaseController
             'name' => 'required|alpha_space',
             'surname' => 'required|alpha_space',
             'email' => 'required|valid_email|is_unique[users.email]',
-            'id_country' => 'required|is_not_unique[countries.id]',
+            'id_county' => 'required|is_not_unique[countries.id]',
             'password' => 'required|matches[confirm_password]',
         ]);
 
@@ -70,6 +43,28 @@ class Register extends BaseController
             $validation->getErrors();
 
             return redirect()->back()->withInput()->with('validation',  $validation);
+        } else {
+
+
+            $user = new User($this->request->getPost());
+            //llamando a la funcion creada en la entidad para generar el username
+
+            $user->generateUsername();
+
+            //instanciar el modelo
+            $modelUser = model('UsersModel');
+            //paso directo del grupo
+            $modelUser->withGroup($this->configs->defaultGroup);
+            // $modelUser->withGroup('admin');
+
+            //====================================
+            $userInfo = new UserInfo($this->request->getPost());
+            $modelUser->addUserInfo($userInfo);
+
+            $modelUser->save($user);
+            // d($modelUser->withGroup($this->configs->defaultGroup));
+
+            return redirect()->route('login');
         }
     }
 
