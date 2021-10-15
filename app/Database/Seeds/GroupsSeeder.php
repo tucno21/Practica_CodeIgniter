@@ -17,12 +17,12 @@ class GroupsSeeder extends Seeder
         $group = [
             [
                 'name' => 'admin',
-                'create_at' => $fecha->format('Y-m-d H:i:s'),
+                'created_at' => $fecha->format('Y-m-d H:i:s'),
                 'updated_at' => $faker->dateTimeBetween($fecha)->format('Y-m-d H:i:s'),
             ],
             [
                 'name' => 'user',
-                'create_at' => $fecha->format('Y-m-d H:i:s'),
+                'created_at' => $fecha->format('Y-m-d H:i:s'),
                 'updated_at' => $faker->dateTimeBetween($fecha)->format('Y-m-d H:i:s'),
             ],
         ];

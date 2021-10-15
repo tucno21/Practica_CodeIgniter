@@ -33,7 +33,7 @@ class InfoUsers extends Migration
                 'unsigned'   => true,
                 'null'       => false, //no nulo
             ],
-            'create_at' => [
+            'created_at' => [
                 'type' => 'DATETIME',
                 'null' => false,
             ],

@@ -20,7 +20,7 @@ class CountriesSeeder extends Seeder
 
             $countries[] = [
                 'name' => $faker->country,
-                'create_at' => $create_at->format('Y-m-d H:i:s'),
+                'created_at' => $create_at->format('Y-m-d H:i:s'),
                 'updated_at' => $updated_at->format('Y-m-d H:i:s'),
             ];
         }
