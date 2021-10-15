@@ -70,7 +70,11 @@ class Register extends BaseController
 
     public function login()
     {
-        return view('Auth/login');
+        if (!session()->is_logged) {
+            return view('Auth/login');
+        }
+
+        return redirect()->route('dashboard');
     }
 
     public function loginstore()
