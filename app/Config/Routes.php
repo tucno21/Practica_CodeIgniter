@@ -46,6 +46,10 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
     $routes->post('loginstore', 'Register::loginstore');
 });
 
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->get('dashboard', 'dashboard::index', ['as' => 'dashboard']);
+});
+
 
 /*
  * --------------------------------------------------------------------

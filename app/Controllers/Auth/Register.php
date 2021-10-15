@@ -104,7 +104,7 @@ class Register extends BaseController
                         'is_logged' => true,
                     ]);
 
-                    return redirect()->route('home');
+                    return redirect()->route('dashboard');
                 } else {
                     return redirect()->back()->with('msg',  [
                         'class' => 'danger',
