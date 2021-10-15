@@ -187,28 +187,28 @@
                                     <a href="index.html#">
                                         <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                         Server Overloaded.
-                                        <span class="small italic">4 mins.</span>
+                                        <span class="italic small">4 mins.</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="index.html#">
                                         <span class="label label-warning"><i class="fa fa-bell"></i></span>
                                         Memory #2 Not Responding.
-                                        <span class="small italic">30 mins.</span>
+                                        <span class="italic small">30 mins.</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="index.html#">
                                         <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                         Disk Space Reached 85%.
-                                        <span class="small italic">2 hrs.</span>
+                                        <span class="italic small">2 hrs.</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="index.html#">
                                         <span class="label label-success"><i class="fa fa-plus"></i></span>
                                         New User Registered.
-                                        <span class="small italic">3 hrs.</span>
+                                        <span class="italic small">3 hrs.</span>
                                     </a>
                                 </li>
                                 <li>
@@ -224,6 +224,9 @@
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
                     <li><a class="logout" href="<?= base_url(route_to('logout')) ?>">Cerrar</a></li>
+                </ul>
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="<?= base_url(route_to('home')) ?>">Inicio</a></li>
                 </ul>
             </div>
         </header>
