@@ -8,7 +8,13 @@ class Category extends BaseController
 {
     public function index()
     {
-        return view('Admin/categorias/index');
+        $modelcategories = model('CategoriesModel');
+
+        $categories = $modelcategories->findAll();
+
+        return view('Admin/categorias/index', [
+            'categories' => $categories,
+        ]);
     }
 
     public function create()
@@ -18,5 +24,22 @@ class Category extends BaseController
 
     public function store()
     {
+        if (!$this->validate([
+            'name' => 'required|alpha_space|max_length[120]',
+        ])) {
+            $validation = $this->validator->getErrors();
+            return redirect()->back()->withInput()->with('validation',  $validation);
+        } else {
+            //capturando y eliminando espacio
+            $name = trim($this->request->getVar('name'));
+
+            $modelcategories = model('CategoriesModel');
+
+            $modelcategories->save([
+                'name' => $name,
+            ]);
+
+            return redirect()->route('categorias');
+        }
     }
 }
