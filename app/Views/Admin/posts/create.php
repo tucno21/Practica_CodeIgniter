@@ -36,7 +36,7 @@
                         <div class="form-group <?php if ($validation->getError('body')) : ?>has-error<?php endif ?>">
                             <label class="col-sm-2 control-label">Cuerpo</label>
                             <div class="col-sm-10">
-                                <textarea id="textarea" class="form-control" name="body" rows="3" placeholder="body" value="<?= old('body') ?>"></textarea>
+                                <textarea id="textarea" class="form-control" name="body" placeholder="body" value="<?= old('body') ?>"></textarea>
                             </div>
 
                             <?php if ($validation->getError('body')) : ?>

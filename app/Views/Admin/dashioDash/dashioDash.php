@@ -131,4 +131,6 @@ $linksScript = [
     $linkURL . '/dashioDash/vendor/jquery.scrollTo.min.js',
     $linkURL . '/dashioDash/vendor/jquery.nicescroll.js',
     $linkURL . '/dashioDash/js/common-scripts.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js',
+    $linkURL . '/dashioDash/js/tinymce.js',
 ];
