@@ -72,6 +72,12 @@ Login
                                         <?php endif; ?>
                                     </div>
 
+                                    <?php if (session('msg')) : ?>
+                                        <div class="alert alert-<?= session('msg.class') ?>" role="alert">
+                                            <?= session('msg.body') ?>
+                                        </div>
+                                    <?php endif; ?>
+
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit">Iniciar</button>
                                     </div>

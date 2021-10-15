@@ -68,4 +68,10 @@ class UsersModel extends Model
     {
         $this->infoUser = $ui;
     }
+
+    //modelo para buscar usuarios
+    public function getUserBy(string $colum, string $value)
+    {
+        return $this->where($colum, $value)->first();
+    }
 }
