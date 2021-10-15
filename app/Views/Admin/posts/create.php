@@ -16,7 +16,7 @@
             <div class="col-lg-10">
                 <div class="form-panel">
 
-                    <form method="POST" class="form-horizontal style-form" action="<?= base_url(route_to('post_store')) ?>">
+                    <form method="POST" enctype="multipart/form-data" class="form-horizontal style-form" action="<?= base_url(route_to('post_store')) ?>">
                         <?= csrf_field() ?>
 
                         <div class="form-group <?php if ($validation->getError('title')) : ?>has-error<?php endif ?>">
@@ -78,7 +78,7 @@
                             <div class="col-sm-10">
                                 <?php foreach ($categories as $category) : ?>
                                     <label class="checkbox-inline">
-                                        <input type="checkbox" name="categories[]" value="">
+                                        <input type="checkbox" name="categories[]" value="<?= $category->id ?>">
                                         <?= $category->name ?>
                                     </label>
                                 <?php endforeach; ?>

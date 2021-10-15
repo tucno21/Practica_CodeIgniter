@@ -24,6 +24,9 @@ class Post extends BaseController
 
     public function store()
     {
+        // dd($this->request->getFiles());
+        // dd($this->request->getPost());
+
         if (!$this->validate([
             'title' => 'required|alpha_space',
             'body' => 'required|alpha_space',
