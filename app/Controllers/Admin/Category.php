@@ -43,9 +43,8 @@ class Category extends BaseController
         }
     }
 
-    public function edit()
+    public function edit(string $id)
     {
-        $id = $this->request->getVar('id');
         echo 'hola edit ' . $id;
     }
 }

@@ -31,7 +31,7 @@
                                     <td><?= $category->created_at ?></td>
                                     <td><?= $category->updated_at ?></td>
                                     <td>
-                                        <a class="btn btn-default" href="<?= base_url(route_to('categoria_editar')) ?>?id=<?= $category->id ?>"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default" href="<?= base_url(route_to('categoria_editar', $category->id)) ?>"><i class="fa fa-edit"></i></a>
                                         <a class="btn btn-default" href=""><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

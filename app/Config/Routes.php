@@ -54,7 +54,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
     $routes->get('categorias/crear', 'Category::create', ['as' => 'categoria_crear']);
     $routes->post('categorias/store', 'Category::store', ['as' => 'categoria_store']);
 
-    $routes->get('categorias/edit', 'Category::edit', ['as' => 'categoria_editar']);
+    $routes->get('categorias/edit/(:any)', 'Category::edit/$1', ['as' => 'categoria_editar']);
 });
 
 
