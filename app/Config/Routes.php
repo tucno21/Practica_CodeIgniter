@@ -60,6 +60,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
     $routes->get('categorias/delete/(:any)', 'Category::delete/$1', ['as' => 'categoria_delete']);
 
     $routes->get('post', 'Post::index', ['as' => 'post']);
+    $routes->get('post/crear', 'Post::create', ['as' => 'post_crear']);
+    $routes->post('post/store', 'Post::store', ['as' => 'post_store']);
 });
 
 
