@@ -58,9 +58,9 @@ $linksSidebar = [
     ],
     [
         'mode' => 'menu',
-        'text' => 'Charts',
-        'url'  => '/charts',
-        'icon' => 'fa fa-cogs',
+        'text' => 'Post',
+        'url'  => base_url(route_to('post')),
+        'icon' => 'fa fa-envelope',
     ],
     [
         'header' => 'SUBMENU',
