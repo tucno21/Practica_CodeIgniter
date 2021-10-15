@@ -47,7 +47,7 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
     $routes->get('logout', 'Register::logout', ['as' => 'logout']);
 });
 
-$routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth'], function ($routes) {
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'auth:admin,user'], function ($routes) {
     $routes->get('dashboard', 'dashboard::index', ['as' => 'dashboard']);
 });
 
