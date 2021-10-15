@@ -81,6 +81,33 @@ class Register extends BaseController
         ])) {
             $validation = $this->validator->getErrors();
             return redirect()->back()->withInput()->with('validation',  $validation);
+        } else {
+            //capturando y eliminando espacio
+            $email = trim($this->request->getVar('email'));
+            $password = trim($this->request->getVar('password'));
+
+            $modelUser = model('UsersModel');
+            $user = $modelUser->getUserBy('email', $email);
+            // dd($user->password);
+
+            if ($user === null) {
+                return redirect()->back()->with('msg',  [
+                    'class' => 'danger',
+                    'body' => 'el email no se encuentra registrado',
+                ]);
+            } else {
+                if (password_verify($password, $user->password)) {
+
+                    return redirect()->route('home');
+                } else {
+                    return redirect()->back()->with('msg',  [
+                        'class' => 'danger',
+                        'body' => 'la contraseña es invalido',
+                    ]);
+                }
+            }
+
+            // dd($user);
         }
     }
 }
