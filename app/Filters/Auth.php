@@ -2,9 +2,10 @@
 
 namespace App\Filters;
 
-use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Auth implements FilterInterface
 {
@@ -29,7 +30,8 @@ class Auth implements FilterInterface
 
         //buscar dentro del array coincidencias
         if (!in_array($group->name, $arguments)) {
-            return redirect()->route('login');
+            throw PageNotFoundException::forPageNotFound();
+            // return redirect()->route('login');
         }
         // dd($group->name);
     }
