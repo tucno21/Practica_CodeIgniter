@@ -72,4 +72,15 @@ class Register extends BaseController
     {
         return view('Auth/login');
     }
+
+    public function loginstore()
+    {
+        if (!$this->validate([
+            'email' => 'required|valid_email',
+            'password' => 'required',
+        ])) {
+            $validation = $this->validator->getErrors();
+            return redirect()->back()->withInput()->with('validation',  $validation);
+        }
+    }
 }

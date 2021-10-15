@@ -29,6 +29,7 @@ Login
 
 <section class="vh-100 mt-4 mb-4" style="background-color: #9A616D;">
     <?php $validation =  \Config\Services::validation(); ?>
+    <?php session(); ?>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
@@ -51,8 +52,8 @@ Login
                                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar sessión</h5>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Correo electronico" value="<?= old('email') ?>" />
-                                        <label class="form-label">Nombre</label>
+                                        <label class="form-label">Correo</label>
+                                        <input type="email" class="form-control <?php if ($validation->getError('email')) : ?>is-invalid<?php endif ?>" name="email" placeholder="Correo" />
                                         <?php if ($validation->getError('email')) : ?>
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('email') ?>
@@ -62,8 +63,8 @@ Login
 
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" class="form-control <?php if ($validation->getError('password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="Contraseña" value="<?= old('password') ?>" />
-                                        <label class="form-label">Nombre</label>
+                                        <label class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control <?php if ($validation->getError('password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="Contraseña" />
                                         <?php if ($validation->getError('password')) : ?>
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('password') ?>

@@ -43,6 +43,7 @@ $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($rout
     $routes->get('register', 'Register::register', ['as' => 'register']);
     $routes->get('login', 'Register::login', ['as' => 'login']);
     $routes->post('store', 'Register::store');
+    $routes->post('loginstore', 'Register::loginstore');
 });
 
 
