@@ -2,7 +2,7 @@
 
 // DATOS GENERALES ADMIN
 $title = 'Dashio';
-$mainLink = '/';
+$mainLink = base_url(route_to('dashboard'));
 $logoAdmin = '/logo/logo.png';
 $logoAdminName = '/logo/logo-name.png';
 
