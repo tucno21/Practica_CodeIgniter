@@ -12,7 +12,7 @@
         <div class="row mt">
 
             <div class="content-panel">
-                <div class="adv-table">
+                <div class="adv-table ">
                     <table cellpadding="0" cellspacing="0" border="0" class="table display table-bordered" id="hidden-table-info">
                         <thead>
                             <tr>
@@ -22,12 +22,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>hola</td>
-                                <td>edit/delete</td>
-                            </tr>
-
+                            <?php foreach ($categories as $category) : ?>
+                                <tr>
+                                    <td><?= $category->id ?></td>
+                                    <td><?= $category->name ?></td>
+                                    <td>
+                                        <a class="btn btn-default" href=""><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default" href=""><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>:?>
                         </tbody>
                     </table>
                 </div>
