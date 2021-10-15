@@ -42,4 +42,10 @@ class Category extends BaseController
             return redirect()->route('categorias');
         }
     }
+
+    public function edit()
+    {
+        $id = $this->request->getVar('id');
+        echo 'hola edit ' . $id;
+    }
 }
