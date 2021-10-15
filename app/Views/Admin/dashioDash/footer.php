@@ -1,3 +1,4 @@
+<?php include 'dashioDash.php'; ?>
 <footer class="site-footer">
     <div class="text-center">
         <p>

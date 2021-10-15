@@ -1,7 +1,8 @@
 <?php
-include 'dashioDash/dashioDash.php';
-include 'dashioDash/head.php';
+// include 'dashioDash/dashioDash.php';
+// include 'dashioDash/head.php';
 ?>
+<?= $this->include('Admin/dashioDash/head') ?>
 
 <!--main content start-->
 <section id="main-content">
@@ -17,7 +18,7 @@ include 'dashioDash/head.php';
 </section>
 <!-- /MAIN CONTENT -->
 
-
+<?= $this->include('Admin/dashioDash/footer') ?>
 <?php
-include 'dashioDash/footer.php';
+// include 'dashioDash/footer.php';
 ?>

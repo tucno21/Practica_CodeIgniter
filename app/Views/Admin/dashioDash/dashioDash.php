@@ -3,8 +3,8 @@
 // DATOS GENERALES ADMIN
 $title = 'Dashio';
 $mainLink = '/';
-$logoAdmin = '../public/logo/logo.png';
-$logoAdminName = '../public/logo/logo-name.png';
+$logoAdmin = '/logo/logo.png';
+$logoAdminName = '/logo/logo-name.png';
 
 //VER ICONOS DE MENSAJE Y NOTIFICACION
 $navNotifications = false;
@@ -14,7 +14,7 @@ $navSettings = false;
 //DATOS DEL USUARIO ADMIN
 $userName = 'Carlos Tucno Vasquez';
 $profile = 'Administrador';
-$photoUser = '../public/dashioDash/img/ui-sam.jpg';
+$photoUser = '/dashioDash/img/ui-sam.jpg';
 $emailUser = 'cc@bb.com';
 
 //MENU CERRAR O PERFIL DE ADMINISTRADOR
@@ -112,7 +112,7 @@ $linksSidebar = [
 
 
 //ENLACES PARA CSS Y JS html
-$linkURL = '../public';
+$linkURL = '';
 
 $linksCss = [
     // 'https://use.fontawesome.com/releases/v5.7.1/css/all.css',
