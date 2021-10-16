@@ -40,9 +40,16 @@ class Post extends BaseController
             return redirect()->back()->withInput()->with('validation',  $validation);
         }
 
+        $file = $this->request->getFile('cover');
+
         $post = new PostEntity($this->request->getPost());
         $post->slug = $this->request->getVar('title');
         $post->id_author = session()->user_id;
+        //https://codeigniter.com/user_guide/libraries/files.html?highlight=get%20random
+        $post->cover = $file->getRandomName();
+        //https://codeigniter.com/user_guide/libraries/uploaded_files.html?highlight=store#store-files
+        $file->store('cover/', $post->cover);
+
         dd($post);
     }
 }
