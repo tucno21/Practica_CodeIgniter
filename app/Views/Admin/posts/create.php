@@ -36,7 +36,9 @@
                         <div class="form-group <?php if ($validation->getError('body')) : ?>has-error<?php endif ?>">
                             <label class="col-sm-2 control-label">Cuerpo</label>
                             <div class="col-sm-10">
-                                <textarea id="textarea" class="form-control" name="body" placeholder="body" value="<?= old('body') ?>"></textarea>
+                                <textarea id="textarea" class="form-control" name="body" placeholder="body">
+                                    <?= old('body') ?>
+                                </textarea>
                             </div>
 
                             <?php if ($validation->getError('body')) : ?>
@@ -62,7 +64,7 @@
                         <div class="form-group <?php if ($validation->getError('published_at')) : ?>has-error<?php endif ?>">
                             <label class="col-sm-2 control-label">Fecha de publicacion</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" name="published_at" />
+                                <input type="date" class="form-control" name="published_at" value="<?= old('published_at') ?>" />
                             </div>
 
                             <?php if ($validation->getError('published_at')) : ?>
@@ -72,21 +74,21 @@
                             <?php endif; ?>
                         </div>
 
-                        <div class="form-group <?php if ($validation->getError('categories')) : ?>has-error<?php endif ?>">
+                        <div class="form-group <?php if ($validation->getError('categories.*')) : ?>has-error<?php endif ?>">
                             <label class="col-sm-2 control-label">Categorias</label>
 
                             <div class="col-sm-10">
                                 <?php foreach ($categories as $category) : ?>
                                     <label class="checkbox-inline">
-                                        <input type="checkbox" name="categories[]" value="<?= $category->id ?>">
+                                        <input type="checkbox" name="categories[]" value="<?= $category->id ?>" <?= old('categories.*') ?                (in_array($category->id, old('categories.*')) ? 'checked' : '') : '' ?>>
                                         <?= $category->name ?>
                                     </label>
                                 <?php endforeach; ?>
                             </div>
 
-                            <?php if ($validation->getError('categories')) : ?>
+                            <?php if ($validation->getError('categories.*')) : ?>
                                 <div class="col-sm-10">
-                                    <p class="text-danger"><?= $validation->getError('categories') ?></p>
+                                    <p class="text-danger"><?= $validation->getError('categories.*') ?></p>
                                 </div>
                             <?php endif; ?>
                         </div>

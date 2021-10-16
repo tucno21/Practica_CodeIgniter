@@ -28,8 +28,11 @@ class Post extends BaseController
         // dd($this->request->getPost());
 
         if (!$this->validate([
-            'title' => 'required|alpha_space',
-            'body' => 'required|alpha_space',
+            'title' => 'required',
+            'body' => 'required',
+            'published_at' => 'required|valid_date',
+            'categories.*' => 'permit_empty|is_not_unique[categories.id]',
+            'cover' => 'uploaded[cover]|is_image[cover]',
         ])) {
             $validation = $this->validator->getErrors();
             return redirect()->back()->withInput()->with('validation',  $validation);
