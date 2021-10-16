@@ -36,6 +36,14 @@ Home
                                 <!-- https://codeigniter.com/user_guide/helpers/text_helper.html -->
                                 <?= character_limiter(strip_tags($post->body), 100) ?>
                             </p>
+                            <div class="">
+                                <?php if (!empty($post->getCategories())) : ?>
+                                    <?php foreach ($post->getCategories() as $cat) : ?>
+                                        <a href=""><?= $cat->name ?></a>
+                                        <!-- <a href="">c</a> -->
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
                             <a href="#!" class="btn btn-primary">Read</a>
                         </div>
                     </div>

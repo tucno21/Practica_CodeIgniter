@@ -38,4 +38,11 @@ class PostEntity extends Entity
         }
         return  $this;
     }
+
+    public function getCategories()
+    {
+        $cpModel = model('CategoriesPosts');
+        return $cpModel->where('id_post', $this->id)->join('categories', 'categories.id = categories_posts.id_category')->findAll() ?? [];
+        // dd($bbbb);
+    }
 }
