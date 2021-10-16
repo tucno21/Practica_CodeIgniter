@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Admin;
 
-use App\Entities\Post;
+use App\Entities\PostEntity;
 use App\Controllers\BaseController;
 // use App\Entities\Post;
 
@@ -40,6 +40,9 @@ class Post extends BaseController
             return redirect()->back()->withInput()->with('validation',  $validation);
         }
 
-        $post = new Post($this->request->getPost());
+        $post = new PostEntity($this->request->getPost());
+        $post->slug = $this->request->getVar('title');
+        $post->id_author = session()->user_id;
+        dd($post);
     }
 }
