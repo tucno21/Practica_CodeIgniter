@@ -33,7 +33,10 @@ class Home extends BaseController
             //https://codeigniter.com/user_guide/general/errors.html
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
+        $post = $postModel->where('slug', $slug)->first();
 
-        echo $slug;
+        return view('front/home/article', [
+            'post' => $post,
+        ]);
     }
 }
