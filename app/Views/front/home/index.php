@@ -44,7 +44,7 @@ Home
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
-                            <a href="#!" class="btn btn-primary">Read</a>
+                            <a href="<?= $post->getLinkArticle() ?>" class="btn btn-primary">Leer Articulo</a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
+use Faker\Provider\Base;
 
 class PostEntity extends Entity
 {
@@ -49,5 +50,10 @@ class PostEntity extends Entity
     public function getLink()
     {
         return base_url('cover/' . $this->cover);
+    }
+
+    public function getLinkArticle()
+    {
+        return base_url(route_to('article', $this->slug));
     }
 }

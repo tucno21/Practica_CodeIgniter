@@ -36,6 +36,7 @@ $routes->setAutoRoute(false);
 //nuevo grupo como base despues de la URL /base
 $routes->group('/', ['namespace' => 'App\Controllers\Front'], function ($routes) {
     $routes->get('', 'Home::index', ['as' => 'home']);
+    $routes->get('articulos/(:segment)', 'Home::article/$1', ['as' => 'article']);
 });
 
 $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function ($routes) {

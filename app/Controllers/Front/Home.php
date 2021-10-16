@@ -26,8 +26,14 @@ class Home extends BaseController
         ]);
     }
 
-    public function libreria()
+    public function article($slug)
     {
-        echo 'desde otro controlador y rura';
+        $postModel = model('PostModel');
+        if (!$postModel->where('slug', $slug)->first()) {
+            //https://codeigniter.com/user_guide/general/errors.html
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        echo $slug;
     }
 }
