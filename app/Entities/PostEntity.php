@@ -28,4 +28,13 @@ class PostEntity extends Entity
 
         $this->attributes['slug'] = $slug;
     }
+
+    protected function getAuthor()
+    {
+        if (!empty($this->attributes['id_author'])) {
+            $uiModel = model('UsersInfoModel');
+            return $uiModel->where('id_user', $this->attributes['id_author'])->first();
+        }
+        return  $this;
+    }
 }

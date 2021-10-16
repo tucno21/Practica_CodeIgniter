@@ -13,8 +13,10 @@ class Home extends BaseController
 
         // echo $instanciar->hola();
         $postModel = model('PostModel');
-        $posts = $postModel->publish()->orderBy('published_at', 'desc')->paginate(2);
+        $posts = $postModel->PostInfoUser()->orderBy('published_at', 'desc')->paginate(2);
+        // $posts = $postModel->PostInfoUser()->paginate(2);
         $pager = $postModel->pager;
+        // dd($posts);
 
         return view('front/home/index', [
             'posts' => $posts,

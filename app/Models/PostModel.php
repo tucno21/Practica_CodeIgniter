@@ -59,4 +59,15 @@ class PostModel extends Model
         $this->where('published_at <=', date('Y-m-d H:i:s'));
         return $this;
     }
+
+    public function PostInfoUser()
+    {
+        $this->select('posts.*, UI.name AS nameInfo, UI.surname AS surnameInfo');
+        $this->join('info_users AS UI', 'posts.id_author = UI.id_user');
+        // $this->orderBy('posts.published_at', 'DESC');
+
+        // $postUsers = $this->findAll();
+        // return $postUsers;
+        return $this;
+    }
 }

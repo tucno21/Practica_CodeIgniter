@@ -29,6 +29,7 @@ Home
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><?= $post->title ?></h5>
+                            <h8 class="card-title"><?= $post->nameInfo . " " . $post->surnameInfo ?></h8>
                             <p class="card-text">
                                 Some quick example text to build on the card title and make up the bulk of the
                                 card's content.

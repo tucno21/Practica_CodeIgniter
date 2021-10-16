@@ -13,4 +13,9 @@ class UserInfo extends Entity
         // 'deleted_at',
     ];
     // protected $casts   = [];
+
+    public function getFullName()
+    {
+        return $this->name . " " . $this->surname;
+    }
 }
