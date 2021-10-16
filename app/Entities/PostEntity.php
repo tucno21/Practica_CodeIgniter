@@ -45,4 +45,9 @@ class PostEntity extends Entity
         return $cpModel->where('id_post', $this->id)->join('categories', 'categories.id = categories_posts.id_category')->findAll() ?? [];
         // dd($bbbb);
     }
+
+    public function getLink()
+    {
+        return base_url('cover/' . $this->cover);
+    }
 }
