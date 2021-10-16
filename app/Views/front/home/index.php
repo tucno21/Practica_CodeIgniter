@@ -32,7 +32,8 @@ Home
                             <h8 class="card-title"><?= $post->nameInfo . " " . $post->surnameInfo ?></h8>
                             <p class="card-text">
                                 <!-- https://www.php.net/manual/es/function.strip-tags.php -->
-                                <?= strip_tags($post->body) ?>
+                                <!-- https://codeigniter.com/user_guide/helpers/text_helper.html -->
+                                <?= character_limiter(strip_tags($post->body), 120) ?>
                             </p>
                             <a href="#!" class="btn btn-primary">Read</a>
                         </div>

@@ -17,7 +17,8 @@ class Home extends BaseController
         // $posts = $postModel->PostInfoUser()->paginate(2);
         $pager = $postModel->pager;
         // dd($posts);
-
+        //https://codeigniter.com/user_guide/helpers/text_helper.html
+        helper('text');
         return view('front/home/index', [
             'posts' => $posts,
             'pager' => $pager,
