@@ -2,7 +2,9 @@
 
 namespace App\Controllers\Admin;
 
+use App\Entities\Post;
 use App\Controllers\BaseController;
+// use App\Entities\Post;
 
 class Post extends BaseController
 {
@@ -37,5 +39,7 @@ class Post extends BaseController
             $validation = $this->validator->getErrors();
             return redirect()->back()->withInput()->with('validation',  $validation);
         }
+
+        $post = new Post($this->request->getPost());
     }
 }
