@@ -12,8 +12,15 @@ class Home extends BaseController
         // $instanciar = new Codigo();
 
         // echo $instanciar->hola();
+        $postModel = model('PostModel');
+        $posts = $postModel->paginate(2);
+        $pager = $postModel->pager;
 
-        return view('front/home/index');
+        return view('front/home/index', [
+            'posts' => $posts,
+            'pager' => $pager,
+
+        ]);
     }
 
     public function libreria()
