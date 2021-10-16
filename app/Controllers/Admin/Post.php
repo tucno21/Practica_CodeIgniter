@@ -50,6 +50,10 @@ class Post extends BaseController
         //https://codeigniter.com/user_guide/libraries/uploaded_files.html?highlight=store#store-files
         $file->store('cover/', $post->cover);
 
-        dd($post);
+        $postModel = model('PostModel');
+        $postModel->envioCategories($this->request->getVar('categories'));
+        $postModel->insert($post);
+
+        return redirect()->route('post');
     }
 }

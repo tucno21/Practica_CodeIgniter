@@ -26,5 +26,31 @@ class PostModel extends Model
 
     // Callbacks
     protected $allowCallbacks       = true;
-    protected $afterInsert          = [];
+    protected $afterInsert          = ['storeCategories'];
+
+    public function storeCategories(array $data)
+    {
+        if (!empty($this->categories)) {
+            $cpModel = model('CategoriesPosts');
+
+            $cats = [];
+            foreach ($this->categories as $cat) {
+                $cats[] = [
+                    'id_post'      => $data['id'],
+                    'id_category'      => $cat,
+                ];
+            }
+            // dd($cats);
+            $cpModel->insertBatch($cats);
+        }
+        return $data;
+    }
+
+
+    protected $categories          = [];
+
+    public function envioCategories(array $categories)
+    {
+        $this->categories = $categories;
+    }
 }
