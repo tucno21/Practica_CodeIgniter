@@ -30,10 +30,11 @@ Home
                         <div class="card-body">
                             <h5 class="card-title"><?= $post->title ?></h5>
                             <h8 class="card-title"><?= $post->nameInfo . " " . $post->surnameInfo ?></h8>
+                            <p class="card-text">Publicado: <?= $post->published_at->humanize() ?></p>
                             <p class="card-text">
                                 <!-- https://www.php.net/manual/es/function.strip-tags.php -->
                                 <!-- https://codeigniter.com/user_guide/helpers/text_helper.html -->
-                                <?= character_limiter(strip_tags($post->body), 120) ?>
+                                <?= character_limiter(strip_tags($post->body), 100) ?>
                             </p>
                             <a href="#!" class="btn btn-primary">Read</a>
                         </div>
